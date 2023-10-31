@@ -1,11 +1,12 @@
 // server.js
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/mydb", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
