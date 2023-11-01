@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
-
+console.log();
 console.log("mongodb uri", process.env.MONGODB_URI);
 // Connect to MongoDB
 try {
@@ -42,9 +42,10 @@ app.use("/foods", foodsRouter);
 app.use("/restaurants", restaurantsRouter);
 app.use("/auth", authRouter);
 app.use("/orders", orderRouter);
-
+console.log("hello");
+console.log("mongodb uri", process.env.MONGODB_URI);
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port check ${port}`);
 });
