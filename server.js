@@ -6,10 +6,17 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+try {
+  mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydb",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
+} catch {
+  console.error("MongoDB connection error:", err);
+}
 const db = mongoose.connection;
 db.on("error", (err) => {
   console.error("MongoDB connection error:", err);
