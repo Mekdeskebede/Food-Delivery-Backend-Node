@@ -9,8 +9,7 @@ console.log("mongodb uri", process.env.MONGODB_URI);
 // Connect to MongoDB
 try {
   mongoose.connect(
-    "mongodb+srv://kebedemekdes289:myatlas289@cluster0.vp5y2kk.mongodb.net/?retryWrites=true&w=majority" ||
-      "mongodb://127.0.0.1:27017/mydb",
+    process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydb",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
