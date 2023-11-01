@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
 
+console.log("mongodb uri", process.env.MONGODB_URI);
 // Connect to MongoDB
 try {
   mongoose.connect(
